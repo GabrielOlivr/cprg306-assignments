@@ -10,6 +10,7 @@ export default function HomePage() {
       <ul className="text-lg">
         <li><Link href="./week-2/" className={linkStyles}>Week 2 Assignment</Link></li>
         <li><Link href="./week-3/" className={linkStyles}>Week 3 Assignment</Link></li>
+        <li><Link href="./week-4/" className={linkStyles}>Week 4 Assignment</Link></li>
       </ul>
     </main>
   );
