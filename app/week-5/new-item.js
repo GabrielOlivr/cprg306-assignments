@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function FormsField(){
+export default function FormsWithInteractivity(){
 
 const [quantity, setQuantity] = useState(1);
 const [name, setName] = useState("");
