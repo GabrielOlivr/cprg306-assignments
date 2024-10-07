@@ -6,12 +6,14 @@ export default function QuantityCounter(){
 
 const [quantity, setQuantity] = useState(1);
 
+//handles the increment button function 
 const incrementQuantity = () => {
     if(quantity < 20){
         setQuantity(quantity + 1);
     }
 }
 
+//handles the decrement button function 
 const decrementQuantity = () => {
     if(quantity > 1){
         setQuantity(quantity - 1);
@@ -20,11 +22,13 @@ const decrementQuantity = () => {
 
 let btnStyles = "bg-teal-500 text-white text-sm rounded-md p-1 px-3 mr-1 hover:bg-teal-800 disabled:bg-gray-500"
 
+//disable button functionality
 let incrementBtnDisabled = false;
 if(quantity >= 20){
     incrementBtnDisabled = true;
 }
 
+//disable button functionality 
 let decrementBtnDisabled = false;
 if(quantity <= 1){
     decrementBtnDisabled = true;
