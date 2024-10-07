@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function InputTextForm(){
+export default function FormsField(){
 
 const [quantity, setQuantity] = useState(1);
 const [name, setName] = useState("");
