@@ -18,8 +18,7 @@ const decrementQuantity = () => {
     }
 }
 
-let btnStyles = "bg-teal-500 text-white text-xl rounded py-2 px-6 mt-3 mr-2 me-3 ms-3 hover:bg-teal-800 disabled:bg-gray-500"
-
+let btnStyles = "bg-teal-500 text-white text-sm rounded-md p-1 px-3 mr-1 hover:bg-teal-800 disabled:bg-gray-500"
 
 let incrementBtnDisabled = false;
 if(quantity >= 20){
@@ -32,16 +31,17 @@ if(quantity <= 1){
 }
 
 return (
-    <div className="flex flex-col items-center">
-        <div className="bg-white p-6 rounded flex flex-col items-center">
-            <h1 className="text-center text-3xl text-black">{quantity}</h1>
-            <div className="flex justify-center">
-                <button className= {btnStyles} onClick={decrementQuantity} disabled={decrementBtnDisabled}>-</button>
-                <button className= {btnStyles} onClick={incrementQuantity} disabled={incrementBtnDisabled}>+</button>  
+    <div className="flex justify-center">
+        <div className="p-2 mt-1 mb-1 rounded-md bg-white text-white w-36">
+            <div className="flex justify-between">
+                <span className="text-black">{quantity}</span>
+                <div className="flex">
+                <button type="button" className= {btnStyles} onClick={decrementQuantity} disabled={decrementBtnDisabled}>-</button>
+                <button type="button" className= {btnStyles} onClick={incrementQuantity} disabled={incrementBtnDisabled}>+</button> 
+                </div>
             </div>
         </div>
     </div>
 );
-
 }
 
