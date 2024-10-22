@@ -41,28 +41,28 @@ import itemsData from "./items.json";
             onClick={handleGroupByCategory}
             >Group By Category</button>
             <ul>
-                {groupByCategory ? sortedCategories.map((category) => (
+               {groupByCategory ? sortedCategories.map((category) => (
                     <div key={category}>
-                        <h1 className="capitalize text-xl">{category}</h1>
+                        <h1 className="capitalize text-xl font-semibold">{category}</h1>
                         {groupedItems[category].map((item) => (
-                            <li key={item.id}>
+                            <div key={item.id}>
                                 <Item 
                                     name={item.name}
                                     quantity={item.quantity}
                                     category={item.category}
                                 />
-                            </li>
+                            </div>
                         ))}
                     </div>
                 ))
                 : sortedItems.map((item) => (
-                <li key={item.id}>
+                <div key={item.id}>
                     <Item
                         name={item.name}
                         quantity={item.quantity}
                         category={item.category}
                     />
-                </li>
+                </div>
                 )) }
             </ul>
         </div>
