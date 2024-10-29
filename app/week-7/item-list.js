@@ -1,20 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Item from "./item";
-import itemsData from "./items.json";
 
  export default function ItemList({ items }){
 
     const [sortBy, setSortBy] = useState("name");
+    const [sortedItems, setSortedItems] = useState([...items]);
 
-    const sortedItems = [...itemsData].sort((a, b) => {
-         if (sortBy == "name"){
-             return a.name.localeCompare(b.name);
-        } else if (sortBy == "category") {
-            return a.category.localeCompare(b.category);
-        }
-        return 0;
-    });
-
+    useEffect (() => {
+        const sorted = [...items].sort((a,b) => {
+            if (sortBy === "name"){
+                return a.name.localeCompare(b.name);
+            } else if (sortBy === "category"){
+                return a.category.localeCompare(b.category);
+            }
+            return 0;
+        })
+        setSortedItems(sorted);
+    }, [items, sortBy]);
+  
     return(
         <div>
              <label className="text-lg font-semi-bold">Sort By:</label>
@@ -26,18 +29,14 @@ import itemsData from "./items.json";
                     onClick={() => { setSortBy("category"); }}
                     >Category
                 </button>
-            {items.length > 0 ? (
-                items.map((item) => (
+                {sortedItems.map((item) => (
                     <Item
-                    key={item.id}
-                    name={item.name}
-                    quantity={item.quantity}
-                    category={item.category}
+                        key={item.id}
+                        name={item.name}
+                        quantity={item.quantity}
+                        category={item.category}
                     />
-                ))
-            ):(
-                <p>NO ITEM</p>
-            )}
+                ))}
         </div>
     );
 }

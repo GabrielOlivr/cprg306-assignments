@@ -2,25 +2,25 @@
 
 import { useState } from "react";
 
+export default function FormsWithInteractivity({ onAddItem })
+{
+    const [quantity, setQuantity] = useState(1);
+    const [name, setName] = useState("");
+    const [category, setCategory] = useState("produce");
 
-export default function FormsWithInteractivity({ onAddItem }){
+    const generateRandId = () => Math.random().toString(36).substring(2,9);
 
-const [quantity, setQuantity] = useState(1);
-const [name, setName] = useState("");
-const [category, setCategory] = useState("produce");
-
-const generateRandId = () => Math.random().toString(36).substring(2,9);
-
-const handleNameChange = (event) => {
+    const handleNameChange = (event) => {
     setName(event.target.value);
 }
 
-const handleCategoryChange = (event) => setCategory(event.target.value);
+    const handleCategoryChange = (event) => setCategory(event.target.value);
 
-const handleSubmit = (event) => {
+    const handleSubmit = (event) =>
+{
     event.preventDefault();
-
-    const newItem = {
+    const newItem = 
+    {
         id: generateRandId(),
         name,
         quantity,
@@ -32,19 +32,18 @@ const handleSubmit = (event) => {
     setName("");
     setQuantity(1);
     setCategory("produce");
-
 }
-
+   
 //handles increment (+) button 
-const incrementQuantity = () => {
-    if(quantity < 20){
-        setQuantity(quantity + 1);
+    const incrementQuantity = () => {
+        if(quantity < 20){
+            setQuantity(quantity + 1);
     }
 }
 //handles decrement (-) button 
-const decrementQuantity = () => {
-    if(quantity > 1){
-        setQuantity(quantity - 1);
+    const decrementQuantity = () => {
+        if(quantity > 1){
+            setQuantity(quantity - 1);
     }
 }
 
