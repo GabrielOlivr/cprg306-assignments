@@ -41,13 +41,15 @@ export default function Page(){
     };
 
     return(
-        <main className="bg-slate-950 p-4">
-            <h1 className="text-3xl mb-5">Shopping List</h1> 
 
-            <FormsWithInteractivity onAddItem={handleAddItem}  /> 
-            <ItemList items={items} onItemSelect={handleItemSelect}/>
-            <MealIdeas ingredient={selectedItemName} />
-        </main>
-
+        <div className="flex space-x-5 p-2">
+            <div className="flex flex-col">
+                <FormsWithInteractivity onAddItem={handleAddItem} />
+                <ItemList items={items} onItemSelect={handleItemSelect} />
+            </div>
+            <div className="w-1/2">
+                <MealIdeas ingredient={selectedItemName} /> 
+            </div>
+        </div>
     );
 }

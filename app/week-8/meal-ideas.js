@@ -1,6 +1,6 @@
 "use client"
 
-import { useStatem, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function MealIdeas({ingredient}){
 
@@ -35,19 +35,25 @@ export default function MealIdeas({ingredient}){
 
     return (
         <div>
-            <h2>Meal Ideas</h2>
-            <p>Here are some meal ideas using {ingredient}:</p>
-            <ul>
-                {meals.length > 0 ? (
-                    meals.map((meal) => (
-                        <li key={meal.idMeal}>
-                            <p>{meal.strMeal}</p>
-                        </li>
-                    ))
-             ) : (
-                    <p>No meal ideas</p>
-                )}
-            </ul>
+            <h2 className="font-bold text-lg mt-2">Meal Ideas</h2>
+                {ingredient ? (
+                    meals.length > 0 ? (
+                        <>
+                            <p>Here are some meal ideas using {ingredient}:</p>
+                                <ul>
+                                    {meals.map((meal) => (
+                                        <li key={meal.idMeal} className="bg-slate-900 max-w-sm p-2 m-1 hover:bg-yellow-700">
+                                            <p>{meal.strMeal}</p>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </>
+                        ) : (
+                    <p>No meals found for {ingredient}</p>
+                )
+            ) : (
+        <p>Select an item to see meal ideas</p>
+    )}
         </div>
     );
 };
