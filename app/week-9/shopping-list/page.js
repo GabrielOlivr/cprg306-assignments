@@ -6,7 +6,6 @@ import itemsData from "./items.json";
 import MealIdeas from "./meal-ideas";
 import { useState } from "react";
 import { useUserAuth } from "../_utils/auth-context";
-import HomePage from "@/app/page";
 
 export default function Page(){
 
@@ -26,20 +25,19 @@ export default function Page(){
         setSelectedItemName(cleanName);
     };
 
-    const {user, gitHubSignIn, firebaseSignOut} = useUserAuth()
+    const {user, firebaseSignOut} = useUserAuth()
 
-    if (!user){
-        return "Please sign in to see this page" //Add a banner to display this message to the user, for styling purpose only
+    if (!user) {
+        return (
+            <div>
+                <p className="text-lg mb-4">Please sign in to see this page.</p>
+                <a className="bg-yellow-700 hover:bg-yellow-500 text-white font-blod py-2 px-4 rounded" href="/week-9">
+                     Sign-In Page
+                </a>
+            </div>
+        )
     }
-/*
-    if (!user){
-        return <HomePage />
-    } else if (firebaseSignOut === true) (
-        <HomePage />
-    )
-*/
     return(
-
         <div className="flex space-x-5 p-2">
             <div className="flex flex-col">
                 <FormsWithInteractivity onAddItem={handleAddItem} />
@@ -47,6 +45,9 @@ export default function Page(){
             </div>
             <div className="w-1/2">
                 <MealIdeas ingredient={selectedItemName} /> 
+            </div>
+            <div>
+                <button onClick={firebaseSignOut} className="bg-yellow-700 hover:bg-yellow-500 text-white font-bold mt-4 py-2 px-4 rounded">Sign Out</button>
             </div>
         </div>
     );
