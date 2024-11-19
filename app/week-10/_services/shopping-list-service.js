@@ -25,5 +25,3 @@ export async function dbAddItem(userId, item) {
     console.error("Error adding item: ", error);
   }
 }
-
-

@@ -27,6 +27,7 @@ export default function Page() {
         if (user) {
             const itemId = await dbAddItem(user.uid, newItem);
             setItems((prevItems) => [...prevItems, { id: itemId, ...newItem }]);
+            //console.log(itemId);
         }
     };
 
@@ -54,7 +55,7 @@ export default function Page() {
             <div className="flex space-x-5 p-2 ">
                 <div className="flex flex-col">
                     <FormsWithInteractivity onAddItem={handleAddItem} />
-                    <ItemList items={items} onItemSelect={handleItemSelect} />
+                    <ItemList items={items} onItemSelect={handleItemSelect}/>
                 </div>
                     <div className="w-1/2">
                         <MealIdeas ingredient={selectedItemName} />
@@ -68,12 +69,3 @@ export default function Page() {
         </main>
     );
 }
-
-/*
-Functionality wise the code is working as expected, but when trying to add remove button 
-the code errors out and can't get the functionality to work as intended 
-
-****Try to fix remove button: so that it works as it should (OPTIONAL but a nice feature) ****
-****Finish styling the code, so it looks clean
-
-*/

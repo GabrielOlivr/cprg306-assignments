@@ -1,4 +1,5 @@
-export default function Item({name, quantity, category, onSelect, onRemove}){
+
+export default function Item({name, quantity, category, onSelect, userId, itemId, onItemDelete}){
 
     return (
         <ul onClick={() => onSelect(name)} className="item">
@@ -8,16 +9,6 @@ export default function Item({name, quantity, category, onSelect, onRemove}){
                 <h3 className="text-xl font-bold">{name}</h3>
                 <p className="text-sm">Buy {quantity} in {category}</p>
               </div>
-              <button 
-                //</div>onClick={(e) => {
-                  //e.stopPropagation(); Prevents triggering onSelect when clicking the remove button
-                  //console.log(`Removing item: ${name}`); Debugging log
-                  //onRemove(name); Calls the parent function to remove the item
-                //}}
-                className="ml-4 bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-700"
-              >
-                Remove
-              </button>
             </div>
           </li>
         </ul>
