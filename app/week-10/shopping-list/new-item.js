@@ -23,7 +23,7 @@ export default function FormsWithInteractivity({ onAddItem })
    
 //handles increment (+) button 
     const incrementQuantity = () => {
-        if(quantity < 20){
+        if(quantity < 20){ 
             setQuantity(quantity + 1);
     }
 }
